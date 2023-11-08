@@ -6,7 +6,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 from application.data import AlphaVantageAPI
 from application.graph import GraphBuilder
 from application.model import ArimaModelBuilder
-from application.model import ArimaModelBuilder, LSTMModelBuilder
+from application.model import ArimaModelBuilder
 import pandas as pd
 import json
 import plotly
@@ -15,7 +15,6 @@ import plotly.express as px
 av = AlphaVantageAPI()
 graph = GraphBuilder()
 arima = ArimaModelBuilder()
-ltsm = LSTMModelBuilder()
 
 
 
@@ -138,11 +137,7 @@ def stock(symbol):
     forecast = arima.forecast()
     graph7JSON = json.dumps(forecast, cls=plotly.utils.PlotlyJSONEncoder)
 
-    ltsm.get_data(symbol)
-    ltsm.prepare_data()
-    ltsm.split_data()
-    ltsm_graph = ltsm.graph()
-    graph8JSON = json.dumps(ltsm_graph, cls=plotly.utils.PlotlyJSONEncoder)
+
 
 
 
@@ -150,7 +145,7 @@ def stock(symbol):
                            close=graph1JSON, volume=graph2JSON,
                            m_avg=graph3JSON, daily_return=graph4JSON,
                            risk=graph5JSON, predict=graph6JSON,
-                           forecast=graph7JSON,ltsm_graph=graph8JSON)
+                           forecast=graph7JSON)
 
 
 @app.errorhandler(404)
