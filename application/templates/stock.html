@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>{{ symbol }} stock Page</h1>
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="{{ url_for('home')}}">{{ stock.symbol }}</a>
+            <div class="text-right"> 
+                {% if current_user.is_authenticated %}
+                <a class="btn btn-primary" href="{{ url_for('addwallet', symbol=stock.symbol)}}" role="button">Add</a>
+                {% else %}
+                <a class="btn btn-primary" href="{{ url_for('login')}}" role="button">Add</a>
+                {% endif %}
+            </div>
+        </div>
+        <h2><a class="article-title" href="{{ url_for('home')}}">{{ stock.name }}</a></h2>
+        <p class="card-text">{{ Description }}</p>
+        <a class="article-content" >{{ stock.industry }}</a>
+        <a class="article-content" >{{ stock.sector }}</a>
+    </div>
+</article>
+<div class="row p-4">
+    <div class="card m-auto" style="width: 100%;" data-aos="fade-left">
+        <div class="card-body">
+            <div id="chart1"></div>
+            <p class="card-text">Close price for {{ stock.symbol }}</p>
+        </div>
+        </div>
+    </div>
+    <div class="row p-4">
+        <div class="card m-auto" style="width: 100%;" data-aos="fade-left">
+            <div class="card-body">
+                <div id="chart2"></div>
+                <p class="card-text">Volume for {{ stock.symbol }}</p>
+            </div>
+            </div>
+        </div>
+        <div class="row p-4">
+            <div class="card m-auto" style="width: 100%;" data-aos="fade-left">
+                <div class="card-body">
+                    <div id="chart3"></div>
+                    <p class="card-text">Moving Average of 10 days for {{ stock.symbol }}</p>
+                </div>
+                </div>
+            </div>
+            <div class="row p-4">
+                <div class="card m-auto" style="width: 100%;" data-aos="fade-left">
+                    <div class="card-body">
+                        <div id="chart4"></div>
+                        <p class="card-text">Daily Return for {{ stock.symbol }}</p>
+                    </div>
+                    </div>
+                </div>
+                <div class="row p-4">
+                    <div class="card m-auto" style="width: 100%;" data-aos="fade-left">
+                        <div class="card-body">
+                            <div id="chart5"></div>
+                            <p class="card-text">risk by investing in {{ stock.symbol }}</p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row p-4">
+                        <div class="card m-auto" style="width: 100%;" data-aos="fade-left">
+                            <div class="card-body">
+                                <div id="chart6"></div>
+                                <p class="card-text">Forecasting the price of {{ stock.symbol }} using ARIMA model</p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="row p-4">
+                            <div class="card m-auto" style="width: 100%;" data-aos="fade-left">
+                                <div class="card-body">
+                                    <div id="chart7"></div>
+                                    <p class="card-text">The predication of the price of {{ stock.symbol }} using ARIMA model</p>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row p-4">
+    <!-- plotly CDN -->
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+        var graphs1 = {{ close | safe}};
+        Plotly.plot("chart1", graphs1,{});
+        var graphs2 = {{ volume | safe}};
+        Plotly.plot("chart2", graphs2,{});
+        var graphs3 = {{ m_avg | safe}};
+        Plotly.plot("chart3", graphs3,{});
+        var graphs4 = {{ daily_return | safe}};
+        Plotly.plot("chart4", graphs4,{});
+        var graphs5 = {{ risk | safe}};
+        Plotly.plot("chart5", graphs5,{});
+        var graphs6 = {{ forecast | safe}};
+        Plotly.plot("chart6", graphs6,{});
+        var graphs7 = {{ predict | safe}};
+        Plotly.plot("chart7", graphs7,{});
+    </script>
+{% endblock content %}

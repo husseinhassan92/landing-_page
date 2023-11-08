@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% if stocks %}
+    {% for stock in stocks %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="{{ url_for('stock', symbol=stock.symbol)}}">{{ stock.symbol }}</a>
+                <div class="text-right"> 
+                    {% if current_user.is_authenticated %}
+                    <a class="btn btn-primary" href="{{ url_for('addwallet', symbol=stock.symbol)}}" role="button">Add</a>
+                    {% else %}
+                    <a class="btn btn-primary" href="{{ url_for('login')}}" role="button">Add</a>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <h2><a class="article-title" href="{{ url_for('stock', symbol=stock.symbol)}}">{{ stock.name }}</a></h2>
+            <a class="article-content" >{{ stock.industry }}</a>
+            <a class="article-content" >{{ stock.sector }}</a>
+        </div>
+    </article>
+
+    
+    {% endfor %}
+    {% else %}
+	Sorry, your search term: <strong>{{ query }}</strong> was not found...
+	{% endif %}
+	
+{% endblock content %}

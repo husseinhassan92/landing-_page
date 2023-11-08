@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="{{ url_for('stock', symbol=stock.symbol)}}">{{ stock.symbol }}</a>
+            <div class="text-right"> 
+                <a class="btn btn-primary" role="button">Added</a>
+            </div>
+        </div>
+        <h2><a class="article-title" href="{{ url_for('stock', symbol=stock.symbol)}}">{{ stock.name }}</a></h2>
+        <a class="article-content" >{{ stock.industry }}</a>
+        <a class="article-content" >{{ stock.sector }}</a>
+    </div>
+</article>
+{% endblock content %}

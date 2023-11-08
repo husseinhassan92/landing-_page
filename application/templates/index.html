@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Landing page</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+
+  <link href="../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <link href="../static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="../static/lib/aos/aos.css" rel="stylesheet">
+  <link href="../static/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+
+
+  <link href="../static/styles/style.css" rel="stylesheet">
+</head>
+<body>
+
+
+    <header id="header">
+      <div class="container">
+  
+        <div id="logo" class="pull-left">
+          <h1><a href="{{ url_for('index') }}" class="scrollto">Stocks Interact</a></h1>
+        </div>
+  
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+            <li class="menu-active"><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('wallet') }}">Wallet</a></li>
+            <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  
+
+    <section id="intro">
+  
+      <div class="intro-text">
+        <h2>Welcome to Stocks Interact</h2>
+        <p>Special in analyzing stocks and predict prices using ML models</p>
+         <div class="navbar-nav mw-50">
+              <form role="form" id="form-buscar" action="{{ url_for('search') }}">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input class="form-control col-sm-6  ml-auto " name="search" type="search" id="search" placeholder="Search for stock" aria-label="Search">
+                      <span class="input-group-btn mr-auto">
+                        <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+                        <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                  </div>
+               </form>
+          </div>
+      </div>
+    </section>
+  
+    <main id="main">
+  
+      
+  
+
+      <section id="features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mr-auto ml-auto">
+                        <div class="section-header" data-aos="fade" data-aos-duration="1000">
+                            <h3 class="section-title">Product Featuress</h3>
+                            <span class="section-divider"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced-features">
+
+            <div class="features-row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <img class="advanced-feature-img-left" src="../static/img/advanced-feature-3.jpg" alt="">
+                            <div data-aos="fade-left">
+                                <h2>Deep dive in analyzing stocks</h2>
+                                <i class="ion-ios-paper-outline " data-aos="fade-left"></i>
+                                <p data-aos="fade-left">Daily return of the stock which is used to measure the day to day performance of stocks, it is the price of stocks at today’s closure compared to the price of the same stock at yesterday’s closure. Positive daily return means appreciation in stock price on daily comparison.</p>
+                                <i class="ion-ios-color-filter-outline" data-aos="fade-left"></i>
+                                <p data-aos="fade-left">Moving average of the stock which is a technical indicator that investors and traders use to determine the trend direction of securities</p>
+                                <i class="ion-ios-barcode-outline" data-aos="fade-left"></i>
+                                <p data-aos="fade-left"><br>The risk of investing in that stock</p>
+                            </div>
+                        </div>
+                    </div>            
+                </div>
+            </div>
+  
+            <div class="features-row section-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <img class="advanced-feature-img-right" src="../static/img/advanced-feature-1.jpg" alt="" data-aos="fade-left">
+                            <div data-aos="fade-right">
+                                <h2>The prediction of the stock price using ML models</h2>
+                                <i class="ion-ios-paper-outline" data-aos="fade-right" ></i>
+                                <p data-aos="fade-left">Prediction using ARIMA model is a statistical analysis model that uses time series data to either better understand the data set or to predict future trends.</p>
+                                <i class="ion-ios-color-filter-outline" data-aos="fade-right"></i>
+                                <p data-aos="fade-left">Prediction using LSTM model which is  used to learn, process, and classify sequential data because these networks can learn long-term dependencies between time steps of data</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-row section-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <img class="advanced-feature-img-left" src="../static/img/advanced-feature-2.jpg" alt="" data-aos="fade-right">
+                            <div data-aos="fade-left">
+                                <h2>Other features</h2>
+                                <i class="ion-ios-albums-outline" data-aos="fade-left"></i>
+                                <p data-aos="fade-left">Collect all your stocks that you want to follow in one place to easily access your stocks</p>
+                                <i class="ion-ios-barcode-outline" data-aos="fade-left"></i>
+                                <p data-aos="fade-left"><br>ETL pipeline to get the most updated stock market data</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section-bg">
+            <div class="container-fluid">
+              <div class="section-header">
+                    <h3 class="section-title">About</h3>
+                    <span class="section-divider"></span>
+                    <p class="section-description">
+                    </p>
+                </div>
+      
+                <div class="row">
+                    <div class="col-lg-6 about-img" data-aos="fade-right">
+                    <img src="../static/img/about-img.jpg" alt="">
+                    </div>
+      
+                    <div class="col-lg-6 content" data-aos="fade-left">
+                        <h2>Let's talk about what inspire me to develop the project</h2>
+                        <p>
+                            When I started learning about data science, I was enthusiast about market. Every time I tried to learn more, the market seemed way too complex for me to grasp.
+                            <br>
+                            What I found was pretty remarkable. There are statistically relevant and actionable data that have a strong correlation with future price-actions with far superior efficacy than  techniques like chart patterns, running averages, and, well, most standard tools available.
+                            <br>
+                            Now that I have found the data and tools, I want to share them with you so you do not have to go through all of the same effort and troubles that I did in finding valid stock market data. That way, you can focus on what matters: learning about the market in clear and actionable ways.
+
+                        </p>
+                        <div class="social">
+                            <a href="https://github.com/husseinhassan92/Stocks_Interact.git"><i class="fa fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+      
+            </div>
+        </section>
+        <section id="team" class="section-bg">
+            <div class="container">
+                <div class="section-header">
+                    <h3 class="section-title">The Developer</h3>
+                    <span class="section-divider"></span>
+                </div>
+  
+                <div class="col-lg-3 col-md-6">
+                    <div class="member">
+                        <h4>Hussein Hassan Hussein</h4>
+                        <span> Data scientist & Full Stack Developer</span>
+                        <div class="social">
+                            <a href="https://github.com/husseinhassan92"><i class="fa fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/hussein-hassan-513725256/"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+
+  
+                </div>
+            </div>
+        </section>
+
+        <section id="tutorial" class="section-bg">
+            <div class="container">
+                <div class="section-header">
+                    <h3 class="section-title">tutorial</h3>
+                    <span class="section-divider"></span>
+                </div>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Z7xWvJ-psWE" allowfullscreen></iframe>
+                  </div>
+            </div>
+        </section>
+  
+    </main>
+  
+
+    <script src="../static/lib/jquery/jquery.min.js"></script>
+    <script src="../static/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="../static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/lib/easing/easing.min.js"></script>
+    <script src="../static/lib/aos/aos.js"></script>
+    <script src="../static/lib/superfish/hoverIntent.js"></script>
+    <script src="../static/lib/superfish/superfish.min.js"></script>
+    <script src="../static/lib/magnific-popup/magnific-popup.min.js"></script>
+  
+
+    <script src="../static/contactform/contactform.js"></script>
+  
+
+    <script src="../static/js/main.js"></script>
+  
+  </body>
+  </html>  
