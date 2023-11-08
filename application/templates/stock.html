@@ -76,6 +76,13 @@
                                 </div>
                             </div>
                             <div class="row p-4">
+                                <div class="card m-auto" style="width: 100%;" data-aos="fade-left">
+                                    <div class="card-body">
+                                        <div id="chart8"></div>
+                                        <p class="card-text">The predication of the price of {{ stock.symbol }} using LSTM model</p>
+                                    </div>
+                                    </div>
+                                </div>
     <!-- plotly CDN -->
 
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -94,5 +101,7 @@
         Plotly.plot("chart6", graphs6,{});
         var graphs7 = {{ predict | safe}};
         Plotly.plot("chart7", graphs7,{});
+        var graphs8 = {{ ltsm_graph | safe}};
+        Plotly.plot("chart8", graphs8,{});
     </script>
 {% endblock content %}
