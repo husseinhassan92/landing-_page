@@ -6,7 +6,6 @@ from flask_login import login_user, current_user, logout_user, login_required
 from application.data import AlphaVantageAPI
 from application.graph import GraphBuilder
 from application.model import ArimaModelBuilder
-from application.model import ArimaModelBuilder
 import pandas as pd
 import json
 import plotly
